@@ -71,13 +71,13 @@ footer a:visited{
 /*****  End Starter Code ****/
 
 /* Requirement 1 code here*/
-a{
+nav li a{
   text-decoration: none;
 
 }
 /* Requirement 2 code here*/
 
-a:hover{
+nav li a:hover{
   text-decoration: underline;
   text-decoration-style: wavy;
 }
@@ -89,31 +89,25 @@ a.skip{
   transition: left 1s ease-out;
   z-index: 1;
   /* Requirement 3 code here*/
-  position: fixed;
+  position: absolute;
   left: -500px;
 }
 
 
 /* Requirement 4 code here*/
-nav ul li a:hover{
-  border: 2px solid yellow;
-  border-right: 0px;
-  border-left: 0px;
-  border-bottom: 0px;
+nav ul li a:focus{
+  border-top: 2px solid yellow;
+  outline: none;
 }
 
 .container{
   /* Requirement 5 code here*/
 display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+grid-template-columns: 1fr 5fr 1fr;
 row-gap: 30px;
 }
 
 /* Requirements 6-10 here: */
-.parallax{
-    /* The image used */
-    background-image: url("header.jpg");
-}
 .intro{
   background-image: url("header.jpg");
   background-color: #DDDDDD;
@@ -124,20 +118,21 @@ row-gap: 30px;
   min-height: 400PX;
 }
 
-#about, #clients, #method, #contact{
-  grid-column-start: 2;
+.about, .clients, .method, .contact{
+  grid-column-start: 2/3;
 }
 img{
   width: 100%;
 }
 .about-image, .clients-image, .method-image, .contact-image{
-  grid-column: span 3;
+  grid-column: 1/ span 3;
   max-height: 500px;
   overflow: hidden;
 }
 .text{ 
   text-align: center;
   max-height: 25%;
+  overflow: scroll;
 
 }
 @media screen and (min-width: 700px){
@@ -154,6 +149,10 @@ img{
 
   
   /* Requirements 12-15 here: */
+  .skip:focus{
+    left: 0px;
+    top: 20px;
+  }
   .container{
     display: grid;
     grid-template-columns: 50px auto 500px auto 50px;
